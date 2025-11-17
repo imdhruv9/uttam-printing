@@ -42,7 +42,7 @@ spring:
 server:
   port: ${PORT:8080}
   error:
-    include-message: true
+    include-message: always
     include-stacktrace: never
 
 jwt:
