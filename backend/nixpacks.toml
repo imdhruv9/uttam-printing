@@ -2,7 +2,7 @@
 nixPkgs = ["maven"]
 
 [phases.build]
-cmds = ["./mvnw clean package -DskipTests"]
+cmds = ["./mvnw clean package -Dmaven.test.skip=true"]
 
 [start]
 cmd = "java -jar target/printingpro-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod"
