@@ -2,9 +2,7 @@ spring:
   application:
     name: printingpro
   datasource:
-    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
-    username: ${PGUSER}
-    password: ${PGPASSWORD}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/printing}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
