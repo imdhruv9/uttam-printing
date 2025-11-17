@@ -5,5 +5,5 @@ nixPkgs = ["maven"]
 cmds = ["./mvnw clean package -Dmaven.test.skip=true"]
 
 [start]
-cmd = "java -jar target/printingpro-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod"
+cmd = "java -Dserver.port=$PORT -jar target/*.jar --spring.profiles.active=prod"
 
