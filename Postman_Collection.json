@@ -43,7 +43,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"username\": \"admin@printingpro.com\",\n  \"password\": \"Admin@123456\"\n}"
+              "raw": "{\n  \"username\": \"admin@uttamprinting.com\",\n  \"password\": \"YOUR_ADMIN_PASSWORD\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/api/auth/login",

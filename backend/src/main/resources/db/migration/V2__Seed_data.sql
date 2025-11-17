@@ -1,6 +1,6 @@
 -- Insert admin user for Uttam Printing
--- Password: Admin@123456 (BCrypt hashed)
--- Change this password immediately in production!
+-- Default password (BCrypt hashed) - See ENV_TEMPLATE.md for setup
+-- IMPORTANT: Change this password immediately after first login!
 INSERT INTO users (id, username, password_hash, roles, created_at)
 VALUES (
     gen_random_uuid(),

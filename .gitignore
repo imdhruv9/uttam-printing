@@ -2,6 +2,11 @@
 .env
 .env.local
 .env.production
+.env.development
+backend/.env
+frontend/.env
+frontend/.env.local
+frontend/.env.production
 
 # IDE
 .idea/
