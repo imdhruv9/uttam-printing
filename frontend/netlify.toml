@@ -9,5 +9,5 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  VITE_API_BASE_URL = "https://YOUR-RAILWAY-DOMAIN.up.railway.app/api"
+  VITE_API_BASE_URL = "https://uttam-printing-production.up.railway.app/api"
 
