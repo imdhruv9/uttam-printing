@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, User, LogOut } from 'lucide-react';
 import { authApi } from '../services/api';
 
@@ -9,6 +9,7 @@ import { authApi } from '../services/api';
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const isAuthenticated = authApi.isAuthenticated();
   const isAdmin = authApi.hasRole('ROLE_ADMIN');
   const user = authApi.getCurrentUser();
@@ -19,10 +20,46 @@ export const Header: React.FC = () => {
     window.location.reload();
   };
 
-  const navLinks = [
-    { to: '/', label: 'Products' },
-    { to: '/contact', label: 'Contact Us' },
-  ];
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // Already on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Navigate to home and scroll to top
+      navigate('/');
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const handleProductsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // Already on home page, scroll to products section
+      const productsSection = document.getElementById('products');
+      if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Navigate to home then scroll to products
+      navigate('/');
+      // Wait for page to render, then scroll
+      const scrollToProducts = () => {
+        const productsSection = document.getElementById('products');
+        if (productsSection) {
+          productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Retry if element not found yet
+          setTimeout(scrollToProducts, 50);
+        }
+      };
+      setTimeout(scrollToProducts, 150);
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
@@ -36,15 +73,26 @@ export const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="text-gray-700 transition-colors hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <a
+              href="/"
+              onClick={handleHomeClick}
+              className="text-gray-700 transition-colors hover:text-primary"
+            >
+              Home
+            </a>
+            <a
+              href="/#products"
+              onClick={handleProductsClick}
+              className="text-gray-700 transition-colors hover:text-primary"
+            >
+              Products
+            </a>
+            <Link
+              to="/contact"
+              className="text-gray-700 transition-colors hover:text-primary"
+            >
+              Contact Us
+            </Link>
 
             {isAdmin && (
               <Link
@@ -98,16 +146,27 @@ export const Header: React.FC = () => {
         {mobileMenuOpen && (
           <div className="border-t border-gray-200 py-4 md:hidden">
             <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="text-gray-700 transition-colors hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <a
+                href="/"
+                onClick={handleHomeClick}
+                className="text-gray-700 transition-colors hover:text-primary"
+              >
+                Home
+              </a>
+              <a
+                href="/#products"
+                onClick={handleProductsClick}
+                className="text-gray-700 transition-colors hover:text-primary"
+              >
+                Products
+              </a>
+              <Link
+                to="/contact"
+                className="text-gray-700 transition-colors hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
 
               {isAdmin && (
                 <Link

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Mail, Phone, MapPin } from 'lucide-react';
+import { ShoppingBag, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 /**
  * Footer component with contact info and links
@@ -30,8 +30,18 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-600 transition-colors hover:text-primary">
-                  Products
+                  Home
                 </Link>
+              </li>
+              <li>
+                <a href="/#products" className="text-gray-600 transition-colors hover:text-primary">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="/#services" className="text-gray-600 transition-colors hover:text-primary">
+                  Services
+                </a>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-600 transition-colors hover:text-primary">
@@ -78,13 +88,56 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 border-t border-gray-200 pt-8 text-center">
-          <p className="text-sm text-gray-600">
-            © {currentYear} Uttam Printing. All rights reserved.
-          </p>
-          <p className="mt-2 text-sm text-gray-500">
-            Made with ❤️ by Dhruv
-          </p>
+        <div className="mt-8 border-t border-gray-200 pt-8">
+          {/* Social Media Links */}
+          <div className="mb-6 flex justify-center gap-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-primary hover:text-white"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-primary hover:text-white"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-primary hover:text-white"
+              aria-label="Twitter"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-primary hover:text-white"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-sm text-gray-600">
+              © {currentYear} Uttam Printing. All rights reserved.
+            </p>
+            <p className="mt-2 text-sm text-gray-500">
+              Made with ❤️ by Dhruv
+            </p>
+          </div>
         </div>
       </div>
     </footer>
