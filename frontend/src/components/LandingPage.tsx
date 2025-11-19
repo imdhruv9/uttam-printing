@@ -30,7 +30,7 @@ import {
  */
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-secondary py-20 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-secondary pt-12 pb-20 md:pt-16 md:pb-32">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white blur-3xl"></div>
@@ -84,27 +84,77 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Image/Illustration */}
+          {/* Right Visual Elements */}
           <div className="relative hidden md:block">
-            <div className="relative rounded-2xl bg-white/10 p-8 backdrop-blur-sm">
-              <div className="grid grid-cols-2 gap-4">
-                {[Printer, FileText, Package, Megaphone].map((Icon, idx) => (
-                  <div
-                    key={idx}
-                    className="flex aspect-square items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm transition-transform hover:scale-110"
-                  >
-                    <Icon className="h-12 w-12 text-white" />
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 rounded-xl bg-white p-6 text-center">
-                <div className="flex items-center justify-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
-                  ))}
+            {/* Floating Service Cards with Enhanced Design */}
+            <div className="relative h-[520px]">
+              {/* Card 1 - Business Cards (Top Left) */}
+              <div className="group absolute left-0 top-0 w-[200px] rounded-3xl border-2 border-white/20 bg-gradient-to-br from-white/95 to-white/90 p-6 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-primary/50 hover:shadow-[0_20px_50px_rgba(198,110,82,0.3)]">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <CreditCard className="h-9 w-9 text-primary transition-transform duration-300" />
                 </div>
-                <p className="mt-2 font-semibold text-gray-900">1000+ Happy Clients</p>
-                <p className="text-sm text-gray-600">Trusted by businesses across India</p>
+                <h3 className="mb-1 text-xl font-bold text-gray-900">Business Cards</h3>
+                <p className="mb-3 text-sm font-medium text-gray-600">Premium quality</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-bold text-primary">₹250</span>
+                  <span className="text-xs text-gray-500">/100</span>
+                </div>
+                <p className="mt-1 text-xs text-gray-500">cards</p>
+              </div>
+
+              {/* Card 2 - Banners (Top Right) */}
+              <div className="group absolute -right-4 top-12 w-[200px] rounded-3xl border-2 border-white/20 bg-gradient-to-br from-white/95 to-white/90 p-6 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-secondary/50 hover:shadow-[0_20px_50px_rgba(233,182,59,0.3)]">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <Megaphone className="h-9 w-9 text-secondary transition-transform duration-300" />
+                </div>
+                <h3 className="mb-1 text-xl font-bold text-gray-900">Banners</h3>
+                <p className="mb-3 text-sm font-medium text-gray-600">Large format</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-bold text-secondary">₹25</span>
+                  <span className="text-xs text-gray-500">/sq.ft</span>
+                </div>
+                <p className="mt-1 text-xs text-gray-500">Outdoor quality</p>
+              </div>
+
+              {/* Card 3 - Printing Services (Bottom Center) */}
+              <div className="group absolute bottom-0 left-1/2 w-[220px] -translate-x-1/2 rounded-3xl border-2 border-white/20 bg-gradient-to-br from-white via-white/95 to-white/90 p-6 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:border-secondary/50 hover:shadow-[0_20px_50px_rgba(233,182,59,0.3)]">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary/30 via-secondary/20 to-secondary/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <Printer className="h-9 w-9 text-primary transition-transform duration-300" />
+                </div>
+                <h3 className="mb-1 text-xl font-bold text-gray-900">12+ Services</h3>
+                <p className="mb-3 text-sm font-medium text-gray-600">Complete solutions</p>
+                <div className="flex items-center justify-center gap-1 rounded-lg bg-secondary/10 px-3 py-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-secondary text-secondary transition-transform duration-300 group-hover:scale-125" style={{ transitionDelay: `${i * 50}ms` }} />
+                  ))}
+                  <span className="ml-2 text-sm font-semibold text-gray-700">4.9</span>
+                </div>
+              </div>
+
+              {/* Enhanced Decorative Floating Elements */}
+              <div className="absolute -right-12 top-1/4 h-40 w-40 animate-pulse rounded-full bg-gradient-to-br from-secondary/30 to-secondary/10 blur-3xl"></div>
+              <div className="absolute -bottom-12 -left-12 h-48 w-48 animate-pulse rounded-full bg-gradient-to-br from-white/20 to-white/5 blur-3xl" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute left-1/4 top-1/2 h-24 w-24 animate-pulse rounded-full bg-primary/20 blur-2xl" style={{ animationDelay: '2s' }}></div>
+            </div>
+
+            {/* Enhanced Stats Banner */}
+            <div className="mt-10 rounded-3xl border border-white/20 bg-gradient-to-r from-white/15 via-white/20 to-white/15 p-8 backdrop-blur-md shadow-2xl">
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div className="group cursor-default">
+                  <div className="mb-2 text-4xl font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:text-secondary">1000+</div>
+                  <div className="text-sm font-medium text-white/90">Happy Clients</div>
+                  <div className="mt-1 h-1 w-12 rounded-full bg-secondary/50 mx-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                </div>
+                <div className="group cursor-default border-x border-white/20 px-6">
+                  <div className="mb-2 text-4xl font-bold text-secondary transition-all duration-300 group-hover:scale-110">5000+</div>
+                  <div className="text-sm font-medium text-white/90">Projects Done</div>
+                  <div className="mt-1 h-1 w-12 rounded-full bg-secondary/50 mx-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                </div>
+                <div className="group cursor-default">
+                  <div className="mb-2 text-4xl font-bold text-white transition-all duration-300 group-hover:scale-110 group-hover:text-secondary">4.9</div>
+                  <div className="text-sm font-medium text-white/90">Rating</div>
+                  <div className="mt-1 h-1 w-12 rounded-full bg-secondary/50 mx-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -182,44 +232,50 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="bg-gray-50 py-20">
+    <section id="services" className="bg-gray-50 py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900">
+        <div className="mb-10 text-center sm:mb-12 md:mb-16">
+          <h2 className="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl sm:mb-4">
             Our <span className="text-primary">Printing Services</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+          <p className="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg">
             Comprehensive printing solutions for businesses, events, and personal needs
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:scale-105 hover:border-primary hover:shadow-lg"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 active:scale-[0.98] sm:p-6 sm:hover:scale-105 sm:hover:border-primary sm:hover:shadow-lg"
             >
-              <div className="mb-4 inline-flex rounded-lg bg-accent p-3 group-hover:bg-primary group-hover:text-white">
-                <service.icon className="h-6 w-6 text-primary group-hover:text-white" />
+              {/* Hover effect background */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block hidden"></div>
+              
+              {/* Content */}
+              <div className="relative">
+                <div className="mb-4 inline-flex rounded-xl bg-gradient-to-br from-accent to-accent/80 p-3 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-dark group-hover:shadow-md sm:p-3">
+                  <service.icon className="h-7 w-7 text-primary transition-colors duration-300 group-hover:text-white sm:h-6 sm:w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-primary sm:text-lg sm:font-semibold">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-600 sm:text-sm">{service.description}</p>
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-gray-900 group-hover:text-primary">
-                {service.title}
-              </h3>
-              <p className="text-sm text-gray-600">{service.description}</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className="mt-10 text-center sm:mt-12">
           <a
             href="#products"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-primary-dark hover:shadow-xl"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-lg transition-all active:scale-95 sm:px-8 sm:py-4 sm:text-lg sm:hover:bg-primary-dark sm:hover:shadow-xl"
           >
             View All Products & Pricing
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
